@@ -1,0 +1,26 @@
+{
+  "name": "ness-bekri",
+  "version": "1.0.0",
+  "description": "Meme generator with proverbs/quotes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YoucefChihi/ness-bekri.git"
+  },
+  "keywords": [
+    "meme"
+  ],
+  "author": "YoucefChihi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YoucefChihi/ness-bekri/issues"
+  },
+  "homepage": "https://github.com/YoucefChihi/ness-bekri#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "jimp": "^0.6.0"
+  }
+}

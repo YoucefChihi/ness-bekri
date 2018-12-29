@@ -1,7 +1,7 @@
 const express = require ('express');
 const Jimp = require ('jimp');
 const app = express ();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 
 const randomBetween = (a, b) => a < b ? Math.floor(Math.random() * b) + a : Math.floor(Math.random() * a) + b  

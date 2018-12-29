@@ -7,6 +7,8 @@ const port = process.env.PORT || 8080;
 const randomBetween = (a, b) => a < b ? Math.floor(Math.random() * b) + a : Math.floor(Math.random() * a) + b  
 const quotes = require ('./quotes');
 
+const imgSize = {width: 506, height: 253}
+
 const images = [
   {filename: 'adolf-hitler.jpg', label: 'Adolf Hitler'},
   {filename: 'albert-einstein.jpg', label: 'Albert Einstein'},
@@ -63,7 +65,7 @@ app.get ('/', (req, res) => {
   Jimp.read (background)
     .then (bg => {
       Jimp.read (path + filename).then (fg => {
-        fg.scaleToFit (500, 261);
+        fg.scaleToFit (imgSize.width, imgSize.height);
         bg.composite (fg, 0, 0).quality (100)
         Jimp.loadFont (Jimp.FONT_SANS_16_WHITE).then (font => {
           bg
@@ -76,8 +78,8 @@ app.get ('/', (req, res) => {
                 alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
                 alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE,
               },
-              500 - fg.getWidth () - 20,
-              261
+              imgSize.width - fg.getWidth () - 20,
+              imgSize.height
             )
             .print (
               font,
@@ -88,8 +90,8 @@ app.get ('/', (req, res) => {
                 alignmentX: Jimp.HORIZONTAL_ALIGN_RIGHT,
                 alignmentY: Jimp.VERTICAL_ALIGN_BOTTOM,
               },
-              500 - fg.getWidth () - 10,
-              261 - 10
+              imgSize.width - fg.getWidth () - 10,
+              imgSize.height - 10
             )
             .writeAsync ('img.jpg')
             .then (_ => {
@@ -127,5 +129,3 @@ app.listen (port, () => console.log (`Ness Bekri listening on port ${port}!`));
 //     return x.innerText
 // })
 // JSON.stringify(getQuotes())
-
-// 500 x 261
